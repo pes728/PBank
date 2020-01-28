@@ -19,7 +19,10 @@ public interface PersonDao {
 	
 	Optional<Person> selectPersonById(UUID id);
 	
+	Optional<Person> selectPersonByName(String name);
+	
 	int deletePersonById(UUID id);
 	
 	int updatePersonById(UUID id, Person person);
+	
 }

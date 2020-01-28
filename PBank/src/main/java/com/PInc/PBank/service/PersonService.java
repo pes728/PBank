@@ -33,6 +33,10 @@ public class PersonService {
 		return personDao.selectPersonById(id);
 	}
 	
+	public Optional<Person> getPersonByName(String name) {
+		return personDao.selectPersonByName(name);
+	}
+	
 	public int deletePerson(UUID id) {
 		return personDao.deletePersonById(id);
 	}
@@ -40,5 +44,7 @@ public class PersonService {
 	public int updatePerson(UUID id, Person person) {
 		return personDao.updatePersonById(id, person);
 	}
+
+	
 	
 }

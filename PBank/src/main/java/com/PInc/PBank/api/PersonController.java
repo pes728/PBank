@@ -6,7 +6,6 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -38,10 +37,16 @@ public class PersonController {
 		return personService.getAllPeople();
 	}
 	
-	@GetMapping(path = "/individual")
+	@GetMapping(path = "/getById")
 	public Person getPersonById(@RequestParam("id") UUID id) {
 		return personService.getPersonByID(id).orElse(null);
 	}
+	
+	@GetMapping(path = "/getByName")
+	public Person getPersonByName(@RequestParam("name") String name) {
+		return personService.getPersonByName(name).orElse(null);
+	}
+	
 	
 	@DeleteMapping
 	public void deletePersonByID(@RequestParam("id") UUID id) {
