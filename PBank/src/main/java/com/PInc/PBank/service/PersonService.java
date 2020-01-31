@@ -22,7 +22,7 @@ public class PersonService {
 	}
 	
 	public int insertPerson(Person person) {
-		return personDao.insertPerson(person);
+		return personDao.insertPerson(new Person(person));
 	}
 	
 	public List<Person> getAllPeople(){
@@ -42,7 +42,14 @@ public class PersonService {
 	}
 	
 	public int updatePerson(UUID id, Person person) {
-		return personDao.updatePersonById(id, person);
+		return personDao.updatePersonById(id, new Person(person));
+	}
+
+	public List<String> getPeopleBySubstr(String substr, int count) {
+		if(substr.isEmpty()) {
+			return personDao.selectCountNames(count);
+		}
+		return personDao.selectPeopleBySubstr(substr, count);
 	}
 
 	

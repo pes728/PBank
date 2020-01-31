@@ -37,10 +37,15 @@ public class PersonController {
 		return personService.getAllPeople();
 	}
 	
+	@GetMapping(path = "/autoComplete")
+	public List<String> getBySubstr(@RequestParam("substr") String substr, @RequestParam("count") int count){
+		return personService.getPeopleBySubstr(substr, count);
+	}
+	
 	@GetMapping(path = "/getById")
 	public Person getPersonById(@RequestParam("id") UUID id) {
 		return personService.getPersonByID(id).orElse(null);
-	}
+	}	
 	
 	@GetMapping(path = "/getByName")
 	public Person getPersonByName(@RequestParam("name") String name) {

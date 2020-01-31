@@ -49,6 +49,25 @@ public class PersonDataAccessService implements PersonDao {
 	}
 	
 	@Override
+	public List<String> selectPeopleBySubstr(String substr, int count) {
+		final String sql = "SELECT name FROM person WHERE name LIKE ? EXCEPT SELECT name FROM person WHERE name = ? LIMIT ?";
+		String string = '%' + substr + '%';
+		return jdbcTemplate.query(sql, new Object[] {string, substr, count},(resultSet, i) -> {
+			return resultSet.getString("name");
+		});	
+	}
+	
+	@Override
+	public List<String> selectCountNames(int count) {
+		final String sql = "SELECT name FROM person LIMIT ?";
+		return jdbcTemplate.query(sql, new Object[] {count}, (resultSet, i) -> {
+			 return resultSet.getString("name");
+		});
+		
+	}
+	
+	
+	@Override
 	public Optional<Person> selectPersonByName(String name) {
 		final String sql = "SELECT id, name FROM person WHERE name = ?";
 		Person p = jdbcTemplate.queryForObject(sql, new Object[] {name}, (resultSet, i) ->{

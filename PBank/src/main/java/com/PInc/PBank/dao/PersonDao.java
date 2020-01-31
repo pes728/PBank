@@ -24,5 +24,9 @@ public interface PersonDao {
 	int deletePersonById(UUID id);
 	
 	int updatePersonById(UUID id, Person person);
+
+	List<String> selectPeopleBySubstr(String substr, int count);
+
+	List<String> selectCountNames(int count);
 	
 }

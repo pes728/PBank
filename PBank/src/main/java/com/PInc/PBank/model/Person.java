@@ -10,14 +10,20 @@ public class Person {
 	private final UUID id;
 	@NotBlank
 	private final String name;
+
+	public Person(Person person) {
+		super();
+		this.id = person.getId();
+		this.name = person.getName().toLowerCase();
+	}
 	
 	public Person(@JsonProperty("id") UUID id,
 			@JsonProperty("name") String name) {
 		super();
 		this.id = id;
-		this.name = name;
+		this.name = name.toLowerCase();
 	}
-
+	
 	public UUID getId() {
 		return id;
 	}

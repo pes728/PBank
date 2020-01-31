@@ -1,0 +1,75 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #eb5029;
+}
+
+#searchBox{
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    background: #302f2f;
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+    width: 80%;
+}
+
+#searchBox:hover #searchButton{
+    background: #e84118;
+}
+
+#searchButton{
+    float: right;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    transition: 0.4s;
+    justify-content: center;
+    align-items: center;
+}
+
+#searchButton img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+#searchTxt{
+    border:none;
+    background:none;
+    outline: none;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: calc(100% - 40px);
+}
+
+
+#dropDown button{
+    cursor: pointer;
+    overflow: hidden;
+    height: 36px;
+    width: 100%;
+    border: none;
+    padding: 10px;
+    margin: 0;
+    font-size: 16px;
+    background-color: #2f3640;
+    color: white;
+}
+
+#dropDown button:first-child{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#dropDown button:last-child{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
